@@ -14,10 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/events','EventController@showEvents');
+Route::get('/events','EventController@showEvents')->name('events');
+Route::get('/events/create','EventController@createEvent')->name('create-event');
+Route::post('/events/submit','EventController@submitEvent')->name('submit-event');
 //Display all events
 //Display single events
 //Add event
 //Remvoe event
 //Join event
 //Update
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
